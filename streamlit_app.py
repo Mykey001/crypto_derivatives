@@ -462,7 +462,7 @@ async def render_dashboard():
                     'Symbol': f"{coin}/USDT",
                     'Mark Price': f"${perp_data.get('mark_prices', {}).get(coin, 0):,.2f}",
                     'Funding Rate': f"{funding.get(coin, 0)*100:.4f}%",
-                    '24h Volume': f"${perp_data.get('volume_24h', {}).get(coin, 0)/1e6:.1f}M",
+                    '24h Volume': f"${perp_data.get('volume_24h', {}).get(coin, 0) or 0/1e6:.1f}M",
                     'Open Interest': f"${perp_data.get('open_interest', {}).get(coin, 0)/1e6:.1f}M",
                     'Basis': f"{basis_data.get(coin, 0):.2f}%" if basis_data and basis_data.get(coin) else "N/A"
                 }
