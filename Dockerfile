@@ -21,6 +21,44 @@ RUN pip install --no-cache-dir --upgrade pip && \
 # Copy application code
 COPY . .
 
+# Set environment variables
+# API Keys for crypto data providers
+ENV COINGECKO_API_KEY=""
+ENV COINMARKETCAP_API_KEY=""
+ENV ALPHA_VANTAGE_API_KEY=""
+ENV NEWS_API_KEY=""
+ENV COVALENT_API_KEY=""
+
+# Social media API keys (optional)
+ENV TWITTER_BEARER_TOKEN=""
+ENV REDDIT_CLIENT_ID=""
+ENV REDDIT_CLIENT_SECRET=""
+
+# Exchange API keys (optional for trading features)
+ENV BINANCE_API_KEY=""
+ENV BINANCE_SECRET=""
+ENV BYBIT_API_KEY=""
+ENV BYBIT_SECRET=""
+ENV OKX_API_KEY=""
+ENV OKX_SECRET=""
+ENV OKX_PASSPHRASE=""
+
+# Notification settings (optional)
+ENV TELEGRAM_TOKEN=""
+ENV TELEGRAM_CHAT_ID=""
+ENV EMAIL_USER=""
+ENV EMAIL_PASSWORD=""
+ENV RECIPIENT_EMAIL=""
+ENV SMTP_SERVER="smtp.gmail.com"
+ENV SMTP_PORT="587"
+
+# Application settings
+ENV DEFAULT_COINS="BTC,ETH,SOL"
+ENV AUTO_REFRESH_INTERVAL="60"
+ENV DATABASE_URL="sqlite:///crypto_dashboard.db"
+ENV DASHBOARD_PORT="8501"
+ENV PYTHONUNBUFFERED="1"
+
 # Create non-root user for security
 RUN useradd -m -u 1000 streamlit && \
     chown -R streamlit:streamlit /app
