@@ -245,7 +245,7 @@ class EnhancedAlertsService:
         """Send periodic market summary"""
         message = self.format_market_summary(market_data)
         
-        await self.EnhancedAlertsServicesend_telegram_alert(message)
+        await self.EnhancedAlertsService.send_telegram_alert(message)
         self.send_email_alert("Market Summary Report", message)
     
     def get_alert_stats(self) -> Dict:
